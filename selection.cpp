@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int selection_sort(int arr[],int k,int n);
+int selection_sort(int arr[],int k,int n)
+{
+    int j,loc,min;
+    min=arr[k];
+    loc=k;
+    for(j=k+1;j<n;j++)
+    {
+        if(min>arr[j])
+        {
+            min=arr[j];
+            loc=j;
+        }
+    }
+    return loc;
+}
+int main()
+{
+    int arr[20];
+    int k,n,temp;
+    cout<<"enter the no. of elements";
+    cin>>n;
+    for(k=0;k<n;k++)
+    {
+       cin>>arr[k];
+    }
+    for(k=0;k<n;k++)
+    {
+        int loc;
+        loc=selection_sort(arr,k,n);
+        temp =arr[k];
+        arr[k]=arr[loc];
+        arr[loc]=temp;
+    }
+    for(k=0;k<n;k++)
+    {
+       cout<<arr[k];
+    }
+
+}
